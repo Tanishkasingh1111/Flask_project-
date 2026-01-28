@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Consultation</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<div class="bg"></div>
+
+<div class="container">
+<div class="card large">
+<h2>📝 Consultation</h2>
+
+<form method="post">
+    <input name="name" placeholder="Full Name" required>
+    <input name="age" type="number" placeholder="Age" required>
+
+    <label>Symptoms</label>
+    <div class="options">
+        <label><input type="checkbox" name="symptoms" value="Fever"> Fever</label>
+        <label><input type="checkbox" name="symptoms" value="Cold"> Cold</label>
+        <label><input type="checkbox" name="symptoms" value="Headache"> Headache</label>
+        <label><input type="checkbox" name="symptoms" value="Stomach Pain"> Stomach Pain</label>
+    </div>
+
+    <label>Severity</label>
+    <div class="options">
+        <label><input type="radio" name="severity" value="Mild" required> Mild</label>
+        <label><input type="radio" name="severity" value="Moderate"> Moderate</label>
+        <label><input type="radio" name="severity" value="Severe"> Severe</label>
+    </div>
+
+    <input name="days" type="number" placeholder="Days" required>
+    <button type="submit">Generate Prescription</button>
+</form>
+</div>
+</div>
+
+</body>
+</html>

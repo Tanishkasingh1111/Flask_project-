@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Prescription</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<div class="bg"></div>
+
+<div class="container">
+<div class="card">
+<h2>💊 Doctor Prescription</h2>
+
+<p><b>Name:</b> {{ data.name }}</p>
+<p><b>Age:</b> {{ data.age }}</p>
+<p><b>Symptoms:</b> {{ data.symptoms }}</p>
+<p><b>Severity:</b> {{ data.severity }}</p>
+<p><b>Duration:</b> {{ data.days }} days</p>
+
+<hr>
+
+<h3>🩺 Prescribed Medicines</h3>
+
+{% if "Fever" in data.symptoms %}
+<p>✔ Paracetamol 650mg – Twice daily after food</p>
+<p>✔ Drink plenty of fluids</p>
+{% endif %}
+
+{% if "Cold" in data.symptoms %}
+<p>✔ Cetirizine – Once daily at night</p>
+<p>✔ Steam inhalation twice a day</p>
+{% endif %}
+
+{% if "Headache" in data.symptoms %}
+<p>✔ Ibuprofen – If pain persists</p>
+<p>✔ Adequate rest</p>
+{% endif %}
+
+{% if "Stomach Pain" in data.symptoms %}
+<p>✔ Omeprazole – Before breakfast</p>
+<p>✔ Avoid spicy food</p>
+{% endif %}
+
+<hr>
+
+<h3>⚠ Severity Advice</h3>
+
+{% if data.severity == "Mild" %}
+<p>✔ Home care is sufficient. Follow medicines regularly.</p>
+
+{% elif data.severity == "Moderate" %}
+<p>✔ Continue medicines and consult a doctor if symptoms persist.</p>
+
+{% elif data.severity == "Severe" %}
+<p>❗ Immediate hospital consultation recommended.</p>
+{% endif %}
+
+<hr>
+
+<p><b>Doctor’s Note:</b>  
+If symptoms do not improve in {{ data.days }} days, please visit a nearby hospital.</p>
+
+<a href="/logout"><button>Logout</button></a>
+
+</div>
+</div>
+
+</body>
+</html>
